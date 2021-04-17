@@ -5,7 +5,8 @@
     <div class="col-lg-8 mx-auto mt-4">
         <div class="card">
             <div class="card-body">
-                <form>
+                <form action="{{ route('addComment') }}" method="post">
+                    @csrf
                     <div class="form-group  mb-2">
                         <label ><h3>Comment</h3></label>
                         <input type="text" name="title" class="form-control" placeholder="Your Title..">
@@ -20,32 +21,16 @@
     </div>
 
     <div class="col-lg-8 mx-auto">
+        @foreach($comments as $comment)
         <div class="card my-2">
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                <a href="#" class="btn btn-info btn-sm">Update</a>
+                <h5 class="card-title">{{ $comment->title }}</h5>
+                <p class="card-text">{{ $comment->description }}</p>
+                <a href="{{ route('deleteComment', ['comment' => $comment->id]) }}" class="btn btn-danger btn-sm">Delete</a>
+                <a href="{{ route('editComment', ['comment' => $comment->id]) }}" class="btn btn-info btn-sm">Update</a>
             </div>
         </div>
-
-        <div class="card my-2">
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                <a href="#" class="btn btn-info btn-sm">Update</a>
-            </div>
-        </div>
-
-        <div class="card my-2">
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                <a href="#" class="btn btn-info btn-sm">Update</a>
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
 @endsection
