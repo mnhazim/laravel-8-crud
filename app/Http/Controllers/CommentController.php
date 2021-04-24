@@ -9,7 +9,7 @@ class CommentController extends Controller
 {
     public function index(){
         $comments = Comment::all();
-
+        //hai test 123
         return view('welcome', compact('comments'));
     }
 
