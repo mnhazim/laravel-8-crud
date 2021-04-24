@@ -2,7 +2,7 @@
 
 @section('section-body')
 <div class="row">
-    <div class="col-lg-8 mx-auto mt-4">
+    <div class="col-lg-6 mx-auto mt-4">
         <div class="card">
             <div class="card-body">
                 <form action="{{ route('addComment') }}" method="post">
@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div class="col-lg-8 mx-auto">
+    <div class="col-lg-6 mx-auto mt-3">
         @foreach($comments as $comment)
         <div class="card my-2">
             <div class="card-body">
